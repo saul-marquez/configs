@@ -77,7 +77,7 @@
           "foreground": "p:blue",
           "style": "powerline",
           "powerline_symbol": "",
-          "template": " <p:os></> {{ .RepoName }}",
+          "template": " <p:os></> {{ .Upstream}}",
           "type": "git"
         },
         {
@@ -148,7 +148,7 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#e0f8ff",
+          "foreground": "p:lavender",
           "foreground_templates": [
             "{{ if gt .Code 0 }}p:pink{{ end }}"
           ],
