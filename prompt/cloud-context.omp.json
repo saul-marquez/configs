@@ -77,9 +77,13 @@
         {
           "background": "p:background-color",
           "foreground": "p:blue",
+          "properties": {
+            "fetch_upstream_icon": true,
+            "github_icon": ""
+          },
           "style": "powerline",
           "powerline_symbol": "",
-          "template": " <p:os></> {{ .RepoName}}",
+          "template": " <p:os>{{ .UpstreamIcon }}</> {{ url .RepoName .RawUpstreamURL}}",
           "type": "git"
         },
         {
@@ -116,7 +120,7 @@
           },
           "style": "powerline",
           "powerline_symbol": "",
-          "template": " <p:os>󱨒</> {{ .CurrentDate | date .Format }}",
+          "template": " <p:os>󱨓</> {{ .CurrentDate | date .Format }}",
           "type": "time"
         },
         {
