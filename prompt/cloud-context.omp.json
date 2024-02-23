@@ -10,13 +10,8 @@
     "yellow": "yellow",
     "green": "green",
     "background-color": "transparent",
-    "cloud-text-amazon": "#F5BDE6",
-    "cloud-text-azure": "#8AADF4",
-    "cloud-text-gcp": "#4285F4",
     "error-background": "#dd0033",
     "error-text": "#242424",
-    "git-text": "#F5BDE6",
-    "kubernetes-text": "#FFBB00",
     "symbol-color": "#ACB0BE",
     "timer-text": "#ACB0BE"
   },
