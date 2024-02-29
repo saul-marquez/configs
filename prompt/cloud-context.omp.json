@@ -26,24 +26,21 @@
           "properties": {
             "time_format": "15:04:05"
           },
-          "style": "powerline",
-          "powerline_symbol": "",
+          "style": "plain",
           "template": " <p:os>󱉊</> {{ dateInZone .Format .CurrentDate \"UTC\" }}",
           "type": "time"
         },
         {
           "background": "p:background-color",
           "foreground": "p:kubernetes-text",
-          "style": "powerline",
-          "powerline_symbol": "",
+          "style": "plain",
           "template": "<p:os></> {{.Context}}{{if .Namespace}}  {{.Namespace}}{{end}}",
           "type": "kubectl"
         },
         {
           "background": "p:background-color",
           "foreground": "p:cloud-text-amazon",
-          "style": "powerline",
-          "powerline_symbol": "",
+          "style": "plain",
           "template": " <p:os></> {{.Profile}}{{if .Region}}  {{.Region}}{{end}}",
           "type": "aws"
         },
@@ -53,8 +50,7 @@
           "properties": {
             "source": "cli"
           },
-          "style": "powerline",
-          "powerline_symbol": "",
+          "style": "plain",
           "template": " <p:os></> {{ .Name }}",
           "type": "az"
         },
@@ -64,8 +60,7 @@
           "properties": {
             "source": "pwsh"
           },
-          "style": "powerline",
-          "powerline_symbol": "",
+          "style": "plain",
           "template": " <p:os></> (PS) {{ .Name }}",
           "type": "az"
         },
@@ -76,8 +71,7 @@
             "fetch_upstream_icon": true,
             "github_icon": ""
           },
-          "style": "powerline",
-          "powerline_symbol": "",
+          "style": "plain",
           "template": "<p:os>{{ .UpstreamIcon }}</> {{ url .RepoName .RawUpstreamURL}}",
           "type": "git"
         },
@@ -88,8 +82,7 @@
             "style": "austin",
             "threshold": 1
           },
-          "style": "powerline",
-          "powerline_symbol": "",
+          "style": "plain",
           "template": " <p:os></> {{ .FormattedMs }}",
           "type": "executiontime"
         },
@@ -113,8 +106,7 @@
           "properties": {
             "time_format": "15:04:05"
           },
-          "style": "powerline",
-          "powerline_symbol": "",
+          "style": "plain",
           "template": " <p:os>󱨓</> {{ .CurrentDate | date .Format }}",
           "type": "time"
         },
@@ -125,7 +117,7 @@
             "folder_separator_icon": "/",
             "style": "folder"
           },
-          "style": "powerline",
+          "style": "plain",
           "template": "<p:os></> {{ path .Path .Location }}",
           "type": "path"
         },
@@ -137,7 +129,7 @@
             "fetch_stash_count": true,
             "fetch_status": true
           },
-          "style": "powerline",
+          "style": "plain",
           "template": " <p:os></> <p:blue>{{.HEAD}}</>{{ if gt .StashCount 0 }} <p:os> {{ .StashCount }}</>{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}",
           "type": "git"
         }
@@ -148,6 +140,13 @@
       "alignment": "left",
       "newline": true,
       "segments": [
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "p:yellow",
+          "background": "p:black",
+          "template": " "
+        },
         {
           "foreground": "p:green",
           "foreground_templates": [
