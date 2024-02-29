@@ -78,7 +78,7 @@
           },
           "style": "powerline",
           "powerline_symbol": "",
-          "template": " <p:os>{{ .UpstreamIcon }}</> {{ url .RepoName .RawUpstreamURL}}",
+          "template": "<p:os>{{ .UpstreamIcon }}</> {{ url .RepoName .RawUpstreamURL}}",
           "type": "git"
         },
         {
@@ -126,7 +126,7 @@
             "style": "folder"
           },
           "style": "powerline",
-          "template": " <p:os></> {{ path .Path .Location }}",
+          "template": "<p:os></> {{ path .Path .Location }}",
           "type": "path"
         },
         {
