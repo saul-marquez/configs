@@ -1,4 +1,4 @@
-oh-my-posh init pwsh --config "C:\\dev\\configs\\prompt\\cloud-context.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "c:/users/saulm/code/configs/prompt/cloud-context.omp.json" | Invoke-Expression
 
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
