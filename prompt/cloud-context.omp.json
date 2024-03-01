@@ -6,7 +6,7 @@
     "os": "#ACB0BE",
     "pink": "red",
     "lavender": "#B7BDF8",
-    "blue":  "blue",
+    "blue": "blue",
     "yellow": "yellow",
     "green": "green",
     "background-color": "transparent",
@@ -72,7 +72,7 @@
             "github_icon": ""
           },
           "style": "plain",
-          "template": "<p:os>{{ .UpstreamIcon }}</> {{ url .RepoName .RawUpstreamURL}}",
+          "template": " <p:os>{{ .UpstreamIcon }}</> {{ url .RepoName .RawUpstreamURL}}",
           "type": "git"
         },
         {
@@ -118,7 +118,7 @@
             "style": "folder"
           },
           "style": "plain",
-          "template": "<p:os></> {{ path .Path .Location }}",
+          "template": " <p:os></> {{ path .Path .Location }}",
           "type": "path"
         },
         {
