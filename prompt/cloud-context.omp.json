@@ -51,7 +51,7 @@
             "source": "cli"
           },
           "style": "plain",
-          "template": " <p:os></> {{ .Name }}",
+          "template": " <p:os></> {{ $l := len .Name}}{{ if ge $l 12 }}{{ .Name | substr 0 4}}{{ $end := int (sub $l 4)}}...{{ .Name | substr $end $l}}{{ else }}{{ .Name }}{{ end }}",
           "type": "az"
         },
         {
@@ -116,7 +116,8 @@
           "foreground": "p:green",
           "properties": {
             "folder_separator_icon": "/",
-            "style": "folder"
+            "home_icon": " ",
+            "style": "letter"
           },
           "style": "plain",
           "template": " <p:os></> {{ path .Path .Location }}",
