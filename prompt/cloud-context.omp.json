@@ -69,7 +69,8 @@
           "foreground": "p:blue",
           "properties": {
             "fetch_upstream_icon": true,
-            "github_icon": ""
+            "github_icon": "",
+            "azure_devops_icon": ""
           },
           "style": "plain",
           "template": "<p:os>{{ .UpstreamIcon }}</> {{ url .RepoName .RawUpstreamURL}}",
