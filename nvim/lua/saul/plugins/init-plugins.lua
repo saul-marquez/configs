@@ -1,0 +1,7 @@
+require('saul.plugins.lazy')
+require('saul.plugins.telescope')
+require('saul.plugins.treesitter')
+require('neodev').setup()
+require('saul.plugins.harpoon')
+require('saul.plugins.undotree')
+require('saul.plugins.file-tree')
