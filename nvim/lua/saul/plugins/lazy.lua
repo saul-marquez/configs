@@ -204,7 +204,15 @@ require('lazy').setup({
       },
     },
   },
-
+  -- Better UI elements
+  {
+    'stevearc/dressing.nvim',
+    opts = {}
+  },
+  {
+    'rest-nvim/rest.nvim',
+    opts = {}
+  },
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -218,6 +226,11 @@ require('lazy').setup({
   'theprimeagen/harpoon',
   'mbbill/undotree',
   require 'saul.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
-
+  'github/copilot.vim',
+  {
+    "lukas-reineke/virt-column.nvim",
+    opts = {
+      virtcolumn = '100'
+    }
+  },
 }, {})
