@@ -226,6 +226,7 @@ require('lazy').setup({
   'theprimeagen/harpoon',
   'mbbill/undotree',
   require 'saul.plugins.autoformat',
+  require 'saul.plugins.rest',
   'github/copilot.vim',
   {
     "lukas-reineke/virt-column.nvim",
