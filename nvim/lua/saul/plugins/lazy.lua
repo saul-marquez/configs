@@ -234,4 +234,5 @@ require('lazy').setup({
       virtcolumn = '100'
     }
   },
+  'tpope/vim-surround'
 }, {})
