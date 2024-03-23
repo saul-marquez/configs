@@ -25,9 +25,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 --Toggle Autoformat
 vim.keymap.set("n", "<leader>ta", vim.cmd.KickstartFormatToggle, { desc = 'Toggle autoformatting' })
 
---Rest Client
-vim.keymap.set("n", "<leader><CR>", "<Plug>RestNvim", { desc = 'Execute http request' })
-
 --Nvim-Tree
 function IsTreeFocused()
   return string.find(vim.fn.expand("%"), "NvimTree")

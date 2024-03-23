@@ -210,10 +210,6 @@ require('lazy').setup({
     opts = {}
   },
   {
-    'rest-nvim/rest.nvim',
-    opts = {}
-  },
-  {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
@@ -226,6 +222,12 @@ require('lazy').setup({
   'theprimeagen/harpoon',
   'mbbill/undotree',
   require 'saul.plugins.autoformat',
+  {
+    "vhyrro/luarocks.nvim",
+    config = function()
+      require("luarocks").setup({})
+    end,
+  },
   require 'saul.plugins.rest',
   'github/copilot.vim',
   {
