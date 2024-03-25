@@ -1,6 +1,13 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- vim.o.shell = 'pwsh.exe'
+-- vim.o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '
+-- vim.o.shellquote = ''
+-- vim.o.shellxquote = ''
+-- vim.o.shellpipe = '| %s'
+-- vim.o.shellredir = '> %s'
+
 vim.g.editorconfig = true
 -- Absolute number for current, relative for others
 vim.wo.number = true
