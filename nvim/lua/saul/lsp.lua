@@ -70,6 +70,7 @@ local servers = {
   rust_analyzer = {},
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
+  omnisharp = { enable_roslyn_analyzers = true },
   dockerls = {},
   lua_ls = {
     Lua = {

@@ -158,7 +158,17 @@ require('lazy').setup({
       require('onedark').load()
     end,
   },
-
+  -- {
+  --   -- Theme inspired by Atom
+  --   'sonph/onehalf.nvim',
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     require('onedark').setup {
+  --     }
+  --     require('onedark').load()
+  --   end,
+  -- },
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -169,7 +179,16 @@ require('lazy').setup({
         theme = 'auto',
         component_separators = '|',
         section_separators = '',
+        globalstatus = true,
       },
+      sections = {
+        lualine_a = { 'mode' },
+        lualine_b = { { 'branch', icon = '' }, 'diff', 'diagnostics' },
+        lualine_c = { { 'filename', path = 1 } },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
+      }
     },
   },
 
@@ -211,6 +230,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-context',
     },
     build = ':TSUpdate',
   },
@@ -218,19 +238,19 @@ require('lazy').setup({
   'nvim-tree/nvim-web-devicons',
   'theprimeagen/harpoon',
   'mbbill/undotree',
+  require 'saul.plugins.debug',
   require 'saul.plugins.autoformat',
   {
     "vhyrro/luarocks.nvim",
-    config = function()
-      require("luarocks").setup({})
-    end,
+    priority = 1000,
+    config = true
   },
   require 'saul.plugins.rest',
   'github/copilot.vim',
   {
     "lukas-reineke/virt-column.nvim",
     opts = {
-      virtcolumn = '100'
+      virtcolumn = '100,140'
     }
   },
   'tpope/vim-surround'
