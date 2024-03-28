@@ -10,18 +10,7 @@ Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
 
 Set-Alias -Name wget -Value wget2
 
-Set-Alias ls eza
-Function DefaultLs { eza -lAh }
-New-Alias -Name l -Value DefaultLs
-
-# function Get-DefaultEza {
-#     param ()
-#     Process {
-#         eza -lAh
-#     }
-# }
-#
-# Set-Alias -Name l -Value Get-DefaultEza
+Function l { eza -lAh }
 
 # PowerShell parameter completion shim for the dotnet CLI
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
