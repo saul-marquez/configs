@@ -2,15 +2,14 @@ oh-my-posh init pwsh --config "$PSScriptRoot/prompt/cloud-context.omp.json" | In
 
 Import-Module posh-git
 
+
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
 
 [console]::InputEncoding = [console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
-Set-Alias -Name wget -Value wget2
-
-Function l { eza -lAh }
+function l { eza -lAh }
 
 # PowerShell parameter completion shim for the dotnet CLI
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
