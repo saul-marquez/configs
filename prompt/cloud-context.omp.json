@@ -51,7 +51,7 @@
             "source": "cli"
           },
           "style": "plain",
-          "template": " <p:os></> {{ $l := len .Name}}{{ if ge $l 12 }}{{ .Name | substr 0 4}}{{ $end := int (sub $l 4)}}...{{ .Name | substr $end $l}}{{ else }}{{ .Name }}{{ end }}",
+          "template": " <p:os></> {{ $l := len .Name}}{{ if ge $l 30 }}{{ .Name | substr 0 4}}{{ $end := int (sub $l 4)}}...{{ .Name | substr $end $l}}{{ else }}{{ .Name }}{{ end }}",
           "type": "az"
         },
         {
