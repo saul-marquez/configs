@@ -11,6 +11,16 @@ Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
 
 function l { eza -lAh }
 
+function Load-Dotenv {
+    param(
+        [string]$path = ".env"
+    )
+    get-content $path | foreach {
+        $name, $value = $_.split('=')
+        set-content env:\$name $value
+    }
+}
+
 # PowerShell parameter completion shim for the dotnet CLI
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     param($wordToComplete, $commandAst, $cursorPosition)
