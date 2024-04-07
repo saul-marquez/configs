@@ -1,12 +1,24 @@
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
-    -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'bicep', 'c', 'c_sharp', 'http', 'lua', 'markdown', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
-
+    ensure_installed = {
+      'bicep',
+      'c',
+      'c_sharp',
+      'http',
+      'javascript',
+      'lua',
+      'markdown',
+      'python',
+      'rust',
+      'tsx',
+      'typescript',
+      'vimdoc',
+      'vim',
+      'bash'
+    },
     auto_install = false,
     sync_install = false,
     ignore_install = {},
-    -- You can specify additional Treesitter modules here: -- For example: -- playground = {--enable = true,-- },
     modules = {},
     highlight = { enable = true },
     indent = { enable = true },
@@ -24,7 +36,6 @@ vim.defer_fn(function()
         enable = true,
         lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
         keymaps = {
-          -- You can use the capture groups defined in textobjects.scm
           ['aa'] = '@parameter.outer',
           ['ia'] = '@parameter.inner',
           ['af'] = '@function.outer',
@@ -68,28 +79,26 @@ vim.defer_fn(function()
       swap = {
         enable = true,
         swap_next = {
-          ['<leader>a'] = '@parameter.inner',
-          ['<leader>f'] = '@function.inner',
+          ['<leader>pa'] = '@parameter.inner',
+          ['<leader>pf'] = '@function.inner',
         },
         swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
-          ['<leader>F'] = '@function.inner',
+          ['<leader>pA'] = '@parameter.inner',
+          ['<leader>pF'] = '@function.inner',
         },
       },
     },
   }
   require 'treesitter-context'.setup {
-    enable = true,            -- Enable this plugin (Can be enabled/disabled later via commands)
-    max_lines = 0,            -- How many lines the window should span. Values <= 0 mean no limit.
-    min_window_height = 20,   -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+    enable = true,
+    max_lines = 4,
+    min_window_height = 20,
     line_numbers = true,
-    multiline_threshold = 20, -- Maximum number of lines to show for a single context
-    trim_scope = 'outer',     -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-    mode = 'cursor',          -- Line used to calculate context. Choices: 'cursor', 'topline'
-    -- Separator between context and content. Should be a single character string, like '-'.
-    -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+    multiline_threshold = 20,
+    trim_scope = 'outer',
+    mode = 'cursor',
     separator = '—',
-    zindex = 20,     -- The Z-index of the context window
+    zindex = 20,
     on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
   }
   vim.keymap.set("n", "[k", function()
