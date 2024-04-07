@@ -1,7 +1,7 @@
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'bicep', 'c', 'c_sharp', 'http', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'bicep', 'c', 'c_sharp', 'http', 'lua', 'markdown', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
 
     auto_install = false,
     sync_install = false,
@@ -41,18 +41,26 @@ vim.defer_fn(function()
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
+          [']a'] = '@parameter.outer',
+          [']b'] = '@block.outer',
           [']m'] = '@function.outer',
           [']]'] = '@class.outer',
         },
         goto_next_end = {
+          [']A'] = '@parameter.outer',
+          [']B'] = '@block.outer',
           [']M'] = '@function.outer',
           [']['] = '@class.outer',
         },
         goto_previous_start = {
+          ['[a'] = '@parameter.outer',
+          ['[b'] = '@block.outer',
           ['[m'] = '@function.outer',
           ['[['] = '@class.outer',
         },
         goto_previous_end = {
+          ['[A'] = '@parameter.outer',
+          ['[B'] = '@block.outer',
           ['[M'] = '@function.outer',
           ['[]'] = '@class.outer',
         },
@@ -61,9 +69,11 @@ vim.defer_fn(function()
         enable = true,
         swap_next = {
           ['<leader>a'] = '@parameter.inner',
+          ['<leader>f'] = '@function.inner',
         },
         swap_previous = {
           ['<leader>A'] = '@parameter.inner',
+          ['<leader>F'] = '@function.inner',
         },
       },
     },
