@@ -72,10 +72,17 @@ require('lazy').setup({
       require('onedark').load()
     end,
   },
+  {
+    'rest-nvim/rest.nvim',
+    ft = "http",
+    dependencies = { "luarocks.nvim" },
+    opts = {}
+  },
   { 'folke/which-key.nvim',                opts = {} },
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
   { 'numToStr/Comment.nvim',               opts = {} },
   { 'stevearc/dressing.nvim',              opts = {} },
+  { 'mrjones2014/smart-splits.nvim' },
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
@@ -101,5 +108,4 @@ require('lazy').setup({
   },
   require 'plugins.debug',
   require 'plugins.autoformat',
-  require 'plugins.rest',
 }, {})
