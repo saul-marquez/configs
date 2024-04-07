@@ -40,16 +40,6 @@ vim.keymap.set("n", "<C-t>",
   function()
     if not IsTreeFocused()
     then
-      require('nvim-tree.api').tree.toggle({ focus = false })
-    end
-  end)
-
-vim.keymap.set("n", "<C-h>",
-  function()
-    if IsTreeFocused()
-    then
-      vim.cmd(":bnext")
-    else
-      require('nvim-tree.api').tree.open({ find_file = true })
+      require('nvim-tree.api').tree.toggle({ find_file = true })
     end
   end)
