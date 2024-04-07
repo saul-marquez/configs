@@ -1,0 +1,6 @@
+require('settings')
+require('mappings')
+require('plugins.init-plugins')
+require('autocmp')
+require('lsp')
+require('functions')

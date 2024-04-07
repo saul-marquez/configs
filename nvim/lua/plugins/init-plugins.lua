@@ -1,0 +1,7 @@
+require('plugins.lazy')
+require('plugins.telescope')
+require('plugins.treesitter')
+require('neodev').setup()
+require('plugins.harpoon')
+require('plugins.undotree')
+require('plugins.file-tree')

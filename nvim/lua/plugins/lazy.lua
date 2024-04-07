@@ -24,10 +24,8 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  -- NOTE: This is where your plugins related to LSP can be installed.
-  --  The configuration is done below. Search for lspconfig to find it below.
+  -- LSP Configuration & Plugins
   {
-    -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
@@ -40,11 +38,11 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
-
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
+      'saadparwaiz1/cmp_luasnip',
       -- Snippet Engine & its associated nvim-cmp source
       {
         'L3MON4D3/LuaSnip',
@@ -58,14 +56,9 @@ require('lazy').setup({
           return 'make install_jsregexp'
         end)(),
       },
-      'saadparwaiz1/cmp_luasnip',
-
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
-
-      -- Adds a number of user-friendly snippets
-      -- 'rafamadriz/friendly-snippets',
     },
   },
   -- Useful plugin to show you pending keybinds.
@@ -144,7 +137,6 @@ require('lazy').setup({
       end,
     },
   },
-
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
@@ -158,17 +150,6 @@ require('lazy').setup({
       require('onedark').load()
     end,
   },
-  -- {
-  --   -- Theme inspired by Atom
-  --   'sonph/onehalf.nvim',
-  --   priority = 1000,
-  --   lazy = false,
-  --   config = function()
-  --     require('onedark').setup {
-  --     }
-  --     require('onedark').load()
-  --   end,
-  -- },
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -238,14 +219,14 @@ require('lazy').setup({
   'nvim-tree/nvim-web-devicons',
   'theprimeagen/harpoon',
   'mbbill/undotree',
-  require 'saul.plugins.debug',
-  require 'saul.plugins.autoformat',
+  require 'plugins.debug',
+  require 'plugins.autoformat',
   {
     "vhyrro/luarocks.nvim",
     priority = 1000,
     config = true
   },
-  require 'saul.plugins.rest',
+  require 'plugins.rest',
   'github/copilot.vim',
   {
     "lukas-reineke/virt-column.nvim",
@@ -253,5 +234,5 @@ require('lazy').setup({
       virtcolumn = '100,140'
     }
   },
-  'tpope/vim-surround'
+  'tpope/vim-surround',
 }, {})

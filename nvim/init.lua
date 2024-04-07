@@ -1,1 +1,1 @@
-require('saul.init-saul')
+require('init-saul')
