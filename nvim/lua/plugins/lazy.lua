@@ -80,6 +80,7 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
   'tpope/vim-surround',
+  'ggandor/leap.nvim',
   'lewis6991/gitsigns.nvim',
   'nvim-lualine/lualine.nvim',
   'nvim-tree/nvim-tree.lua',
