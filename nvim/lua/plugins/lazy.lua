@@ -76,7 +76,9 @@ require('lazy').setup({
     'rest-nvim/rest.nvim',
     ft = "http",
     dependencies = { "luarocks.nvim" },
-    opts = {}
+    config = function()
+      require('rest-nvim').setup()
+    end, 
   },
   { 'folke/which-key.nvim',                opts = {} },
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
