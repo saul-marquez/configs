@@ -27,7 +27,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<CS-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  nmap('<AS-K>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
   nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
