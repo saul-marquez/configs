@@ -6,6 +6,10 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
+    layout_strategy = 'horizontal',
+    layout_config = {
+      width = 0.9,
+    },
   },
 }
 

@@ -24,10 +24,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
 
-vim.keymap.set('n', '<leader>a', '<Plug>(leap)', { desc = 'Leap around' })
-vim.keymap.set('n', '<leader>A', '<Plug>(leap-from-window)', { desc = 'Leap globally' })
-vim.keymap.set({ 'x', 'o' }, '<leader>a', '<Plug>(leap-forward)', { desc = 'Leap forward' })
-vim.keymap.set({ 'x', 'o' }, '<leader>A', '<Plug>(leap-backward)', { desc = 'Leap backward' })
+vim.keymap.set('n', 's', '<Plug>(leap)', { desc = 'Leap around' })
+vim.keymap.set('n', 'S', '<Plug>(leap-from-window)', { desc = 'Leap globally' })
+vim.keymap.set({ 'x', 'o' }, 's', '<Plug>(leap-forward)', { desc = 'Leap forward' })
+vim.keymap.set({ 'x', 'o' }, 'S', '<Plug>(leap-backward)', { desc = 'Leap backward' })
 
 
 --Toggle Autoformat

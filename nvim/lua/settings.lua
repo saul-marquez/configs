@@ -53,7 +53,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 vim.o.textwidth = 140
-vim.o.colorcolumn = 140
+vim.o.colorcolumn = "140"
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -65,3 +65,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+vim.filetype.add({ extensions = { props = "xml" } })

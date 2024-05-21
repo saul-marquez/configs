@@ -78,6 +78,13 @@
         },
         {
           "background": "p:background-color",
+          "foreground": "p:blue",
+          "style": "plain",
+          "template": " <p:os></> {{.Error}} {{ .Venv }}",
+          "type": "python"
+        },
+        {
+          "background": "p:background-color",
           "foreground": "p:timer-text",
           "properties": {
             "style": "austin",

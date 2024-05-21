@@ -14,6 +14,7 @@ vim.defer_fn(function()
       'typescript',
       'vimdoc',
       'vim',
+      'xml',
       'bash'
     },
     auto_install = false,
@@ -103,5 +104,5 @@ vim.defer_fn(function()
   }
   vim.keymap.set("n", "[k", function()
     require("treesitter-context").go_to_context(vim.v.count1)
-  end, { silent = true })
+  end, { silent = true, desc = "Go to context" })
 end, 0)

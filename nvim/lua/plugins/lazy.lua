@@ -51,10 +51,11 @@ require('lazy').setup({
       'saadparwaiz1/cmp_luasnip',
       {
         'L3MON4D3/LuaSnip',
-        build = 'make install_jsregexp',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
+        version = 'v2.2.0',
+        -- build = 'make install_jsregexp',
+        -- cond = function()
+        --   return vim.fn.executable 'make' == 1
+        -- end,
       },
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
@@ -78,7 +79,22 @@ require('lazy').setup({
     dependencies = { "luarocks.nvim" },
     config = function()
       require('rest-nvim').setup()
-    end, 
+    end,
+  },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    opts = { rocks = { 'luasnip' } }
+  },
+  {
+    "lukas-reineke/virt-column.nvim",
+    opts = {
+      virtcolumn = '100,140'
+    }
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
   { 'folke/which-key.nvim',                opts = {} },
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
@@ -97,17 +113,6 @@ require('lazy').setup({
   'theprimeagen/harpoon',
   'github/copilot.vim',
   'mbbill/undotree',
-  {
-    "vhyrro/luarocks.nvim",
-    priority = 1000,
-    opts = { rocks = { 'luasnip' } }
-  },
-  {
-    "lukas-reineke/virt-column.nvim",
-    opts = {
-      virtcolumn = '100,140'
-    }
-  },
   require 'plugins.debug',
   require 'plugins.autoformat',
 }, {})

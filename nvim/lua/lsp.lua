@@ -52,6 +52,7 @@ local servers = {
   html = { filetypes = { 'html', 'twig', 'hbs' } },
   omnisharp = { enable_roslyn_analyzers = true },
   dockerls = {},
+  pylsp = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
