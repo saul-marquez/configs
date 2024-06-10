@@ -1,6 +1,7 @@
 require('plugins.lazy')
 require('plugins.telescope')
 require('plugins.treesitter')
+require('plugins.autoformat')
 require('plugins.gitsigns')
 require('neodev').setup()
 require('plugins.mux')

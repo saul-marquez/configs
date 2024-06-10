@@ -32,6 +32,15 @@ vim.keymap.set({ 'x', 'o' }, 'S', '<Plug>(leap-backward)', { desc = 'Leap backwa
 
 --Toggle Autoformat
 vim.keymap.set("n", "<leader>ta", vim.cmd.KickstartFormatToggle, { desc = 'Toggle autoformatting' })
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>f",
+  function()
+    require('conform').format { async = true, lsp_fallback = true }
+  end,
+  { desc = '[F]ormat buffer' }
+)
+
 
 --Nvim-Tree
 function IsTreeFocused()

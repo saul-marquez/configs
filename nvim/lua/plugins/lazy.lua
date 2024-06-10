@@ -62,7 +62,7 @@ require('lazy').setup({
     },
   },
   {
-    'navarasu/onedark.nvim',
+    'saul-marquez/onedark.nvim',
     priority = 1000,
     lazy = false,
     config = function()
@@ -87,10 +87,10 @@ require('lazy').setup({
     opts = { rocks = { 'luasnip' } }
   },
   {
-    "lukas-reineke/virt-column.nvim",
-    opts = {
-      virtcolumn = '100,140'
-    }
+    'stevearc/conform.nvim',
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    opts = {}
   },
   {
     'nvim-lualine/lualine.nvim',
@@ -113,6 +113,5 @@ require('lazy').setup({
   'theprimeagen/harpoon',
   'github/copilot.vim',
   'mbbill/undotree',
-  require 'plugins.debug',
-  require 'plugins.autoformat',
+  require 'plugins.debug'
 }, {})

@@ -53,7 +53,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 vim.o.textwidth = 140
-vim.o.colorcolumn = "140"
+vim.o.colorcolumn = "100,140"
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
