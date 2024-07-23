@@ -32,9 +32,9 @@
         },
         {
           "background": "p:background-color",
-          "foreground": "p:kubernetes-text",
+          "foreground": "p:blue",
           "style": "plain",
-          "template": "<p:os></> {{.Context}}{{if .Namespace}}  {{.Namespace}}{{end}}",
+          "template": " <p:os></> {{.Context}}{{if .Namespace}}  {{.Namespace}}{{end}}",
           "type": "kubectl"
         },
         {
