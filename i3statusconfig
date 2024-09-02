@@ -18,6 +18,7 @@ general {
 
 order += "volume master"
 order += "wireless _first_"
+order += "ethernet enp61s0u1u1"
 order += "disk /"
 order += "memory"
 order += "cpu_temperature 0"
@@ -41,10 +42,15 @@ volume master {
 }
 
 wireless _first_ {
-        format_up = "<span color='#3498DB' size='large'> </span> <span bgcolor='#3498DB' foreground='black'>%quality %essid </span>"
-        format_down = "<span color='#D32F2F'>  Offline</span>"
+        format_up = "<span color='#3498DB' size='large'> 󰖩 </span> <span bgcolor='#3498DB' foreground='black'>%quality %essid </span>"
+        format_down = "<span color='#D32F2F' size='large'> 󰖪 </span>"
 }
 
+ethernet enp61s0u1u1 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "<span color= '#27AE60' size='large'>󰈁 </span>"
+        format_down = "<span color= '#D32F2F' size='large'>󰈂 </span>"
+}
 
 disk "/" {
         format = "<span color='#27AE60' size='large'> </span> <span bgcolor='#27AE60' foreground='black'> %avail </span>"
@@ -63,12 +69,12 @@ cpu_temperature 0 {
 }
 
 battery 1 {
-        format = "<span color='#34e0bf' size='large'>%status</span> <span bgcolor='#34e0bf' foreground='black'> %percentage </span>"
+        format = "<span color='#34e0bf' size='large'>%status </span> <span bgcolor='#34e0bf' foreground='black'> %percentage </span>"
                 format_down = "No battery"
-                status_chr = ""
-                status_bat = " "
+                status_chr = ""
+                status_bat = ""
                 status_unk = "?"
-                status_full = ""
+                status_full = ""
                 path = "/sys/class/power_supply/CMB0/uevent"
                 low_threshold = 10
                 last_full_capacity = true
@@ -93,13 +99,6 @@ run_watch DHCP {
 
 run_watch VPN {
         pidfile = "/var/run/vpnc/pid"
-}
-
-
-ethernet eno16777736 {
-        # if you use %speed, i3status requires root privileges
-        format_up = " %ip "
-        format_down = "  "
 }
 
 cpu_usage {
