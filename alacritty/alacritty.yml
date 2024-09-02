@@ -1,0 +1,11 @@
+shell:
+  program: '/home/saul/.nix-profile/bin/fish'
+
+window:
+  opacity: 0.5
+
+font:
+  normal: 
+    family: "FiraCode Nerd Font Mono" 
+    style: "Regular"
+  size: 13
