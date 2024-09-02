@@ -2,7 +2,7 @@ shell:
   program: '/home/saul/.nix-profile/bin/fish'
 
 window:
-  opacity: 0.5
+  opacity: 0.8
 
 font:
   normal: 
