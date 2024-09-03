@@ -50,7 +50,7 @@ local servers = {
   rust_analyzer = {},
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
-  omnisharp = { enable_roslyn_analyzers = true },
+  csharp_ls = { filetypes = { 'cs' } },
   dockerls = {},
   pylsp = {},
   lua_ls = {
