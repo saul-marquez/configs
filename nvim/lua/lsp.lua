@@ -18,7 +18,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
   map({ 'v' }, '<leader>a', vim.lsp.buf.code_action, 'Code [A]ction')
 
-  nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+  nmap('gd', require('csharpls_extended').lsp_definitions, '[G]oto [D]efinition')
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
@@ -50,7 +50,9 @@ local servers = {
   rust_analyzer = {},
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
-  csharp_ls = { filetypes = { 'cs' } },
+  csharp_ls = {
+    filetypes = { 'cs' },
+  },
   dockerls = {},
   pylsp = {},
   lua_ls = {
