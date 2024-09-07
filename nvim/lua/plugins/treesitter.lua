@@ -15,7 +15,8 @@ vim.defer_fn(function()
       'vimdoc',
       'vim',
       'xml',
-      'bash'
+      'bash',
+      'vue',
     },
     auto_install = false,
     sync_install = false,
