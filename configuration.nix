@@ -117,7 +117,7 @@ in
     steam-run
     dmenu
     xclip
-    gnome.gnome-keyring
+    gnome-keyring
     networkmanagerapplet
     nitrogen
     pasystray
