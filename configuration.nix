@@ -123,12 +123,14 @@ in
     pasystray
     picom
     polkit_gnome
+    alsa-utils
     pulseaudioFull
     rofi
     git
     gh
     vim
     btop
+    lsof
     bat
     unrar
     unzip
