@@ -2,12 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
-let 
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+let
+  # unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in
 {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -16,11 +18,6 @@ in
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
 
   networking = {
     firewall = {
@@ -50,12 +47,12 @@ in
     LC_TIME = "es_ES.UTF-8";
   };
 
-  sound.enable = true;
-
   services = {
     xserver = {
-      layout = "us";
-      xkbVariant = "";
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
       enable = true;
       windowManager.i3 = {
         enable = true;
@@ -73,11 +70,15 @@ in
       };
       displayManager = {
         lightdm.enable = true;
-        defaultSession = "xfce+i3";
       };
     };
+    displayManager = {
+      defaultSession = "xfce+i3";
+    };
+    gnome = {
+      gnome-keyring.enable = true;
+    };
     gvfs.enable = true;
-    gnome.gnome-keyring.enable = true;
     blueman.enable = true;
     pipewire = {
       enable = true;
@@ -108,11 +109,14 @@ in
     font-awesome
     fira-code-nerdfont
     (nerdfonts.override { fonts = ["NerdFontsSymbolsOnly"];})
-  ];   
+  ];
+
   environment.systemPackages = with pkgs; [
     alacritty
     fish
+    steam-run
     dmenu
+    xclip
     gnome.gnome-keyring
     networkmanagerapplet
     nitrogen
@@ -125,19 +129,25 @@ in
     gh
     vim
     btop
+    bat
     unrar
     unzip
+    lnav
+    inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
     firefox
     teams-for-linux
-    unstable.neovim
+    zoxide
     fzf
     ripgrep
     docker
     kubectl
     azure-cli
+    azure-functions-core-tools
     gcc
     lua51Packages.lua
-    unstable.dotnetCorePackages.sdk_8_0_3xx
+    lua-language-server
+    dotnetCorePackages.sdk_8_0_3xx
+    # unstable.dotnetCorePackages.dotnet_8.runtime
     python3
     nodejs
   ];
@@ -167,35 +177,9 @@ in
       };
     };
   };
-  
+
   hardware = {
     bluetooth.enable = true;
   };
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
-
+    system.stateVersion = "23.11";
 }

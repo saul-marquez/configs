@@ -93,7 +93,13 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim',                   opts = {} },
   { 'stevearc/dressing.nvim',                  opts = {} },
   { 'mrjones2014/smart-splits.nvim' },
-  { 'Decodetalkers/csharpls-extended-lsp.nvim' },
+  { "iabdelkareem/csharp.nvim",
+    dependencies = {
+      "williamboman/mason.nvim", -- Required, automatically installs omnisharp
+      "mfussenegger/nvim-dap",
+      "Tastyep/structlog.nvim", -- Optional, but highly recommended for debugging
+    },
+      },  
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
@@ -106,5 +112,5 @@ require('lazy').setup({
   'theprimeagen/harpoon',
   'github/copilot.vim',
   'mbbill/undotree',
-  require 'plugins.debug'
+  -- require 'plugins.debug'
 }, {})
