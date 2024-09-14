@@ -32,15 +32,15 @@ block = "cpu"
 info_cpu = 70
 warning_cpu = 70
 critical_cpu = 90
-format = " $icon $utilization.eng(w:3)"
+format = " $icon $utilization.eng(w:3, pad_with:' ')"
 format_alt = " $icon $barchart"
 
 [[block]]
 block = "memory"
 warning_mem = 60
 critical_mem = 80
-format = "$icon $mem_used_percents.eng(w:2)"
-format_alt = "$icon_swap $swap_used_percents.eng(w:2)"
+format = " $icon $mem_used_percents.eng(w:2)"
+format_alt = " $icon_swap $swap_used_percents.eng(w:2)"
 
 [[block]]
 block = "disk_space"
@@ -50,15 +50,15 @@ alert_unit = "GB"
 interval = 20
 warning = 20.0
 alert = 10.0
-format = "$icon $available.eng(w:2)"
+format = " $icon $available.eng(w:2)"
 
 [[block]]
 block = "net"
-format = "$icon $speed_down.eng(prefix:K, w:2)^icon_net_down$speed_up.eng(prefix:K, w:2)^icon_net_up"
+format = " $icon $speed_down.eng(prefix:K, w:2)^icon_net_down$speed_up.eng(prefix:K, w:2)^icon_net_up"
 
 [[block]]
 block = "battery"
-format =  "$icon $percentage.eng(w:2)"
+format =  " $icon $percentage.eng(w:2)"
 full_format = " $icon $percentage.eng(w:3)"
 charging_format = " $icon $percentage.eng(w:2)"
 
