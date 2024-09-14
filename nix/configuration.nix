@@ -50,14 +50,18 @@ in
   services = {
     xserver = {
       xkb = {
-        layout = "us";
+        layout = "us,es";
         variant = "";
+        options="grp:alt_shift_toggle";
       };
       enable = true;
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [
           i3status
+          i3lock
+          i3status-rust
+          kbdd
         ];
       };
       desktopManager = {
@@ -123,6 +127,7 @@ in
     pasystray
     picom
     polkit_gnome
+    xss-lock
     alsa-utils
     pulseaudioFull
     rofi
@@ -137,6 +142,8 @@ in
     lnav
     inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
     firefox
+    firefoxpwa
+    pinta
     teams-for-linux
     zoxide
     fzf
@@ -148,9 +155,12 @@ in
     gcc
     lua51Packages.lua
     lua-language-server
-    dotnetCorePackages.sdk_8_0_3xx
-    # unstable.dotnetCorePackages.dotnet_8.runtime
-    python3
+    (with dotnetCorePackages; combinePackages [
+      sdk_6_0
+      sdk_8_0
+    ])
+    python311Full
+    poetry
     nodejs
   ];
   programs = {
