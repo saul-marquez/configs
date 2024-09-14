@@ -94,6 +94,18 @@ in
     };
   };
 
+  virtualisation.docker = {
+    enable = true;
+    rootless.enable = true;
+  };
+
+  users.users.saul = {
+    isNormalUser = true;
+    description = "Saul Marquez";
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    packages = with pkgs; [];
+  };
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -101,13 +113,6 @@ in
     };
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.saul = {
-    isNormalUser = true;
-    description = "Saul Marquez";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-  };
 
   fonts.packages = with pkgs; [
     font-awesome
@@ -152,6 +157,7 @@ in
     kubectl
     azure-cli
     azure-functions-core-tools
+    pulumi
     gcc
     lua51Packages.lua
     lua-language-server
@@ -160,6 +166,7 @@ in
       sdk_8_0
     ])
     python311Full
+    python312Full
     poetry
     nodejs
   ];
