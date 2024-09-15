@@ -54,7 +54,8 @@ format = " $icon $available.eng(w:2)"
 
 [[block]]
 block = "net"
-format = " $icon $speed_down.eng(prefix:K, w:2)^icon_net_down$speed_up.eng(prefix:K, w:2)^icon_net_up"
+format = " $icon "
+format_alt = " $icon $speed_down.eng(prefix:K, w:2)^icon_net_down $speed_up.eng(prefix:K, w:2)^icon_net_up"
 
 [[block]]
 block = "battery"

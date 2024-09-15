@@ -55,7 +55,7 @@ require('mason-lspconfig').setup()
 
 local servers = {
     rust_analyzer = {},
-    ts_ls = {},
+    vtsls = {},
     html = { filetypes = { 'html', 'twig', 'hbs' } },
     dockerls = {},
     pylsp = {},
