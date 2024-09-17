@@ -22,7 +22,7 @@ format = "$layout"
 
 [[block]]
 block = "sound"
-format = " $icon $volume.eng(w:3)"
+format = " $icon { $volume|}"
 [[block.click]]
 button = "left"
 cmd = "pavucontrol"
