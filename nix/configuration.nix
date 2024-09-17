@@ -99,6 +99,11 @@ in
     rootless.enable = true;
   };
 
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+  };
+
   users.users.saul = {
     isNormalUser = true;
     description = "Saul Marquez";
@@ -136,7 +141,7 @@ in
     alsa-utils
     pulseaudioFull
     rofi
-    git
+    git-lfs
     gh
     vim
     btop
@@ -155,7 +160,9 @@ in
     ripgrep
     docker
     kubectl
-    azure-cli
+    (azure-cli.withExtensions [
+      azure-cli-extensions.azure-devops
+    ])
     azure-functions-core-tools
     pulumi
     gcc
