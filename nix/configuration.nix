@@ -8,12 +8,12 @@ let
   # unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in
 {
+  system.stateVersion = "24.05";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -45,6 +45,10 @@ in
     LC_PAPER = "es_ES.UTF-8";
     LC_TELEPHONE = "es_ES.UTF-8";
     LC_TIME = "es_ES.UTF-8";
+  };
+
+  environment.sessionVariables = {
+    FLAKE = "/home/saul/dotfiles";
   };
 
   services = {
@@ -99,9 +103,11 @@ in
     rootless.enable = true;
   };
 
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
+  programs = {
+    git = {
+      enable = true;
+      lfs.enable = true;
+    };
   };
 
   users.users.saul = {
@@ -126,6 +132,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
+    nh
     alacritty
     fish
     steam-run
@@ -154,10 +161,12 @@ in
     firefox
     firefoxpwa
     pinta
+    meld
     teams-for-linux
     zoxide
     fzf
     ripgrep
+    eza
     docker
     kubectl
     (azure-cli.withExtensions [
@@ -165,6 +174,7 @@ in
     ])
     azure-functions-core-tools
     pulumi
+    pulumiPackages.pulumi-language-nodejs
     gcc
     lua51Packages.lua
     lua-language-server
@@ -207,5 +217,4 @@ in
   hardware = {
     bluetooth.enable = true;
   };
-    system.stateVersion = "23.11";
 }

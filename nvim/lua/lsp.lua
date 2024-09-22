@@ -55,6 +55,7 @@ require('mason-lspconfig').setup()
 
 local servers = {
     rust_analyzer = {},
+    eslint = {},
     vtsls = {},
     html = { filetypes = { 'html', 'twig', 'hbs' } },
     dockerls = {},
@@ -97,4 +98,3 @@ require("csharp").setup({
         logging = "ERROR"
     }
 })
-vim.lsp.set_log_level("debug")
