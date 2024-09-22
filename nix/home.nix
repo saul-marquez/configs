@@ -45,6 +45,7 @@
     lfs.enable = true;
     userName = "Saul Marquez";
     userEmail = "saul.marquez@mdw-group.com";
+    extraConfig.color.ui = true;
   };
 
   programs.alacritty = lib.mkForce {
@@ -60,7 +61,7 @@
         };
       };
       shell.program = "/home/saul/.nix-profile/bin/fish";
-      window.opacity = 0.9;
+      window.opacity = 0.95;
     };
   };
 

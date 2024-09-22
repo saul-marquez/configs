@@ -8,7 +8,8 @@ vim.g.maplocalleader = ' '
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
-vim.keymap.set({ 'n', 'v', 'i' }, '<C-s>', ':wa<CR>', { desc = 'Save' })
+vim.keymap.set({ 'n', 'v' }, '<C-s>', ':wa<CR>', { desc = 'Save' })
+vim.keymap.set('i', '<C-s>', '<ESC>:wa<CR>', { desc = 'Save' })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

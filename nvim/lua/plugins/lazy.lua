@@ -69,6 +69,7 @@ require('lazy').setup({
       require('onedark').setup {
         -- Set a style preset. 'dark' is default.
         style = 'darker', -- dark, darker, cool, deep, warm, warmer, light
+        transparent = true,
       }
       require('onedark').load()
     end,
@@ -93,13 +94,14 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim',                   opts = {} },
   { 'stevearc/dressing.nvim',                  opts = {} },
   { 'mrjones2014/smart-splits.nvim' },
-  { "iabdelkareem/csharp.nvim",
+  {
+    "iabdelkareem/csharp.nvim",
     dependencies = {
       "williamboman/mason.nvim", -- Required, automatically installs omnisharp
       "mfussenegger/nvim-dap",
       "Tastyep/structlog.nvim", -- Optional, but highly recommended for debugging
     },
-      },  
+  },
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
@@ -112,5 +114,6 @@ require('lazy').setup({
   'theprimeagen/harpoon',
   'github/copilot.vim',
   'mbbill/undotree',
+  'xiyaowong/transparent.nvim',
   -- require 'plugins.debug'
 }, {})

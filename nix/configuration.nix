@@ -216,7 +216,7 @@
 
     # Lua
     lua51Packages.lua
-    lua-language-server
+    sumneko-lua-language-server
 
     # Pulumi
     pulumi

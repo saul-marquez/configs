@@ -61,14 +61,14 @@ local servers = {
     dockerls = {},
     pylsp = {},
     nil_ls = {},
-    lua_ls = {
-        Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-            -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            -- diagnostics = { disable = { 'missing-fields' } },
-        },
-    },
+    -- lua_ls = {
+    --     Lua = {
+    --         workspace = { checkThirdParty = false },
+    --         telemetry = { enable = false },
+    --         -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+    --         -- diagnostics = { disable = { 'missing-fields' } },
+    --     },
+    -- },
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
