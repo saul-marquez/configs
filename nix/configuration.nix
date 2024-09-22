@@ -2,11 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, ... }:
+{ inputs, pkgs, stylix, ... }:
 
-let
-  # unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in
+
 {
   system.stateVersion = "24.05";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -117,13 +115,18 @@ in
     packages = with pkgs; [];
   };
 
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
+    image = ./tiles.jpg;
+  };
+
   nixpkgs = {
     config = {
       allowUnfree = true;
       pulseaudio = true;
     };
   };
-
 
   fonts.packages = with pkgs; [
     font-awesome
@@ -132,9 +135,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
-    nh
-    alacritty
-    fish
+    # X
     steam-run
     dmenu
     xclip
@@ -145,47 +146,87 @@ in
     picom
     polkit_gnome
     xss-lock
+    rofi
     alsa-utils
     pulseaudioFull
-    rofi
+
+    # Basics
+    # alacritty
+    fish
+    vim
+    nh
+    inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
+
+    # archives
+    zip
+    xz
+    unzip
+    p7zip
+    unrar
+
+    # Monitor
+    btop  # replacement of htop/nmon
+    iotop # io monitoring
+    iftop # network monitoring
+    strace # system call monitoring
+    ltrace # library call monitoring
+    lsof # list open files
+    sysstat
+    lm_sensors # for `sensors` command
+    ethtool
+    pciutils # lspci
+    usbutils # lsusb
+
+    # utils
+    bat
+    zoxide
+    ripgrep # recursively searches directories for a regex pattern
+    jq # A lightweight and flexible command-line JSON processor
+    yq-go # yaml processor https://github.com/mikefarah/yq
+    eza # A modern replacement for ‘ls’
+    fzf # A command-line fuzzy finder
+    glow # markdown previewer in terminal
+    lnav
+
+    # development tools
     git-lfs
     gh
-    vim
-    btop
-    lsof
-    bat
-    unrar
-    unzip
-    lnav
-    inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
-    firefox
-    firefoxpwa
-    pinta
-    meld
-    teams-for-linux
-    zoxide
-    fzf
-    ripgrep
-    eza
     docker
     kubectl
     (azure-cli.withExtensions [
-      azure-cli-extensions.azure-devops
+     azure-cli-extensions.azure-devops
     ])
     azure-functions-core-tools
-    pulumi
-    pulumiPackages.pulumi-language-nodejs
     gcc
-    lua51Packages.lua
-    lua-language-server
+
+     # Python
+    python311Full
+    python312Full
+    poetry
+
+
+    # JS
+    nodejs
+
+    # Dotnet
     (with dotnetCorePackages; combinePackages [
       sdk_6_0
       sdk_8_0
     ])
-    python311Full
-    python312Full
-    poetry
-    nodejs
+
+    # Lua
+    lua51Packages.lua
+    lua-language-server
+
+    # Pulumi
+    pulumi
+    pulumiPackages.pulumi-language-nodejs
+
+    # Rust
+    rustc
+    cargo
+
+
   ];
   programs = {
     thunar.enable = true;

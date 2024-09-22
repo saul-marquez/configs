@@ -60,6 +60,7 @@ local servers = {
     html = { filetypes = { 'html', 'twig', 'hbs' } },
     dockerls = {},
     pylsp = {},
+    nil_ls = {},
     lua_ls = {
         Lua = {
             workspace = { checkThirdParty = false },
