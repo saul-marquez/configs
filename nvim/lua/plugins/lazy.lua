@@ -102,6 +102,12 @@ require('lazy').setup({
       "Tastyep/structlog.nvim", -- Optional, but highly recommended for debugging
     },
   },
+  {
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup({})
+    end,
+  },
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
@@ -112,7 +118,7 @@ require('lazy').setup({
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
   'theprimeagen/harpoon',
-  'github/copilot.vim',
+  -- 'github/copilot.vim',
   'mbbill/undotree',
   'xiyaowong/transparent.nvim',
   -- require 'plugins.debug'

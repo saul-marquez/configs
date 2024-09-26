@@ -11,3 +11,5 @@ alias p="fish_clipboard_paste"
 alias cfg="nvim ~/dotfiles/"
 
 set -e SSH_ASKPASS
+
+set PAT PAT

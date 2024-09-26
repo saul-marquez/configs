@@ -56,7 +56,15 @@ require('mason-lspconfig').setup()
 local servers = {
     rust_analyzer = {},
     eslint = {},
-    vtsls = {},
+    vtsls = {
+    settings = {
+      typescript = {
+        tsserver ={
+          maxTsServerMemory = 8192
+        }
+      },
+    }
+    },
     html = { filetypes = { 'html', 'twig', 'hbs' } },
     dockerls = {},
     pylsp = {},

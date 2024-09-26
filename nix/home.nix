@@ -33,8 +33,6 @@
 
     # logs
 
-    firefox
-    firefoxpwa
     pinta
     meld
     teams-for-linux
@@ -61,7 +59,7 @@
         };
       };
       shell.program = "/home/saul/.nix-profile/bin/fish";
-      window.opacity = 0.95;
+      window.opacity = 0.97;
     };
   };
 

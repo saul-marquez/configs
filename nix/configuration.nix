@@ -73,6 +73,7 @@
           noDesktop = true;
           enableXfwm = false;
         };
+        wallpaper.mode = "fill";
       };
       displayManager = {
         lightdm.enable = true;
@@ -150,6 +151,11 @@
     alsa-utils
     pulseaudioFull
 
+
+    firefox
+    firefoxpwa
+    brave
+
     # Basics
     # alacritty
     fish
@@ -198,11 +204,16 @@
     ])
     azure-functions-core-tools
     gcc
+    cmake
+    postman
+    redisinsight
 
      # Python
-    python311Full
+    # python311Full
     python312Full
     poetry
+    ruff
+    fastapi-cli
 
 
     # JS
