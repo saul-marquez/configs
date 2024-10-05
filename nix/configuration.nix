@@ -99,6 +99,10 @@
       xwayland.enable = true;
 
     };
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
     thunar.enable = true;
     dconf.enable = true;
   };
@@ -113,6 +117,8 @@
     packages = [];
   };
 
+  documentation.man.generateCaches = false;
+
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
@@ -122,6 +128,8 @@
   environment.sessionVariables = {
     FLAKE = "/home/saul/dotfiles";
     NIXOS_OZONE_WL = "1";
+    GTK_THEME = "Adwaita:dark";
+    GTK2_RC_FILES = "${pkgs.gnome-themes-extra}/share/themes/Adwaita/gtk-2.0/gtkrc";
   };
 
   nixpkgs = {
@@ -151,9 +159,9 @@
     alsa-utils
     pulseaudioFull
     kitty
-    dolphin
     pavucontrol
     glib
+    gnome-themes-extra
 
     waybar
     (pkgs.waybar.overrideAttrs (
@@ -165,9 +173,8 @@
     libnotify
     swww
 
-    firefox
-    firefoxpwa
     brave
+    inputs.zen-browser.packages.${pkgs.system}.default
 
     # Basics
     # alacritty
