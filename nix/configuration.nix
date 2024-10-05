@@ -162,6 +162,7 @@
     pavucontrol
     glib
     gnome-themes-extra
+    hyprshot
 
     waybar
     (pkgs.waybar.overrideAttrs (

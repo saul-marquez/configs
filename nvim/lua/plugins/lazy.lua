@@ -112,6 +112,7 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
   'tpope/vim-surround',
+  'tpope/vim-obsession',
   'ggandor/leap.nvim',
   'lewis6991/gitsigns.nvim',
   'nvim-lualine/lualine.nvim',
@@ -121,5 +122,6 @@ require('lazy').setup({
   -- 'github/copilot.vim',
   'mbbill/undotree',
   'xiyaowong/transparent.nvim',
+  'ap/vim-css-color',
   -- require 'plugins.debug'
 }, {})

@@ -72,11 +72,31 @@
     shellIntegration.enableFishIntegration = true;
   };
 
-  programs.tmux = {
-    enable = true;
-    shell = "${pkgs.fish}/bin/fish";
-    terminal = "tmux-256color";
-  };
+  # programs.tmux = {
+  #   enable = true;
+  #   clock24 = true;
+  #   shell = "${pkgs.fish}/bin/fish";
+  #   terminal = "xterm-256color";
+  #   plugins = with pkgs;
+  #     [
+  #       {
+  #         plugin = tmuxPlugins.resurrect;
+  #         extraConfig = ''
+  #         set -g @resurrect-strategy-vim 'session'
+  #         set -g @resurrect-strategy-nvim 'session'
+  #         set -g @resurrect-capture-pane-contents 'on'
+  #         '';
+  #       }
+  #       {
+  #         plugin = tmuxPlugins.continuum;
+  #         extraConfig = ''
+  #           set -g @continuum-restore 'on'
+  #           set -g @continuum-boot 'on'
+  #           set -g @continuum-save-interval '10'
+  #           '';
+  #       }
+  #   ];
+  # };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
