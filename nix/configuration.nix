@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, pkgs, stylix, ... }:
+{ inputs, pkgs, ... }:
 
 
 {
@@ -45,43 +45,7 @@
     LC_TIME = "es_ES.UTF-8";
   };
 
-  environment.sessionVariables = {
-    FLAKE = "/home/saul/dotfiles";
-  };
-
   services = {
-    xserver = {
-      xkb = {
-        layout = "us,es";
-        variant = "";
-        options="grp:alt_shift_toggle";
-      };
-      enable = true;
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          i3status
-          i3lock
-          i3status-rust
-          kbdd
-        ];
-      };
-      desktopManager = {
-        xterm.enable = false;
-        xfce = {
-          enable = true;
-          noDesktop = true;
-          enableXfwm = false;
-        };
-        wallpaper.mode = "fill";
-      };
-      displayManager = {
-        lightdm.enable = true;
-      };
-    };
-    displayManager = {
-      defaultSession = "xfce+i3";
-    };
     gnome = {
       gnome-keyring.enable = true;
     };
@@ -94,6 +58,17 @@
         support32Bit = true;
       };
       pulse.enable = true;
+      jack.enable = true;
+    };
+    greetd = {
+      enable = true;
+      settings = rec {
+        initial_session = {
+          command = "Hyprland";
+          user = "saul";
+        };
+        default_session = initial_session;
+      };
     };
   };
 
@@ -107,19 +82,46 @@
       enable = true;
       lfs.enable = true;
     };
+    fish = {
+      enable = true;
+    };
+    bash = {
+      interactiveShellInit = ''
+        if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+          then
+            shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+            exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+            fi
+            '';
+    };
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+
+    };
+    thunar.enable = true;
+    dconf.enable = true;
   };
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   users.users.saul = {
     isNormalUser = true;
     description = "Saul Marquez";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [];
+    packages = [];
   };
 
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
     image = ./tiles.jpg;
+  };
+
+  environment.sessionVariables = {
+    FLAKE = "/home/saul/dotfiles";
+    NIXOS_OZONE_WL = "1";
   };
 
   nixpkgs = {
@@ -131,7 +133,6 @@
 
   fonts.packages = with pkgs; [
     font-awesome
-    fira-code-nerdfont
     (nerdfonts.override { fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
@@ -142,15 +143,27 @@
     xclip
     gnome-keyring
     networkmanagerapplet
-    nitrogen
     pasystray
     picom
     polkit_gnome
     xss-lock
-    rofi
+    rofi-wayland
     alsa-utils
     pulseaudioFull
+    kitty
+    dolphin
+    pavucontrol
+    glib
 
+    waybar
+    (pkgs.waybar.overrideAttrs (
+      oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      })
+    )
+    dunst
+    libnotify
+    swww
 
     firefox
     firefoxpwa
@@ -158,7 +171,7 @@
 
     # Basics
     # alacritty
-    fish
+    # fish
     vim
     nh
     inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
@@ -184,6 +197,7 @@
     usbutils # lsusb
 
     # utils
+    killall
     bat
     zoxide
     ripgrep # recursively searches directories for a regex pattern
@@ -241,13 +255,7 @@
     # Rust
     rustc
     cargo
-
-
   ];
-  programs = {
-    thunar.enable = true;
-    dconf.enable = true;
-  };
 
   security = {
     polkit.enable = true;

@@ -63,6 +63,21 @@
     };
   };
 
+  programs.kitty = {
+    enable = true;
+    font = lib.mkForce {
+      package = pkgs.fira-code-nerdfont;
+      name = "FiraCode Nerd Font Mono";
+    };
+    shellIntegration.enableFishIntegration = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+    shell = "${pkgs.fish}/bin/fish";
+    terminal = "tmux-256color";
+  };
+
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
@@ -71,7 +86,7 @@
   # You can update home Manager without changing this value. See
   # the home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
