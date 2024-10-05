@@ -4,3 +4,4 @@ result
 *.DotSettings.user
 .idea/
 .analyzerpackages/
+fish/fish_variables
