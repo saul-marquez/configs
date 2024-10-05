@@ -57,13 +57,13 @@ local servers = {
     rust_analyzer = {},
     eslint = {},
     vtsls = {
-    settings = {
-      typescript = {
-        tsserver ={
-          maxTsServerMemory = 8192
-        }
-      },
-    }
+      settings = {
+        typescript = {
+          tsserver ={
+            maxTsServerMemory = 8192
+          }
+        },
+      }
     },
     html = { filetypes = { 'html', 'twig', 'hbs' } },
     dockerls = {},

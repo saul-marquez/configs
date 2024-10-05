@@ -193,6 +193,7 @@
     fzf # A command-line fuzzy finder
     glow # markdown previewer in terminal
     lnav
+    # atuin
 
     # development tools
     git-lfs
@@ -206,11 +207,15 @@
     gcc
     cmake
     postman
+    bruno
     redisinsight
+    sqlcmd
 
      # Python
-    # python311Full
-    python312Full
+    python311Full
+    python311Packages.zipp
+    python311Packages.wrapt
+    # python312Full
     poetry
     ruff
     fastapi-cli
