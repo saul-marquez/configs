@@ -1,60 +1,64 @@
+@define-color bar-white #ecf0f1;
+@define-color bar-black #2d3436;
+@define-color bar-red #eb4d4b;
+
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: @bar-white;
+  transition-property: background-color;
+  transition-duration: .5s;
+
 }
 
 window#waybar.hidden {
-    opacity: 0.3;
+  opacity: 0.3;
 }
 
-
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    /* box-shadow: inset 0 -3px transparent; */
-    /* Avoid rounded borders under each button name */
-    border: none;
-    border-radius: 0;
+  /* Use box-shadow instead of border so the text isn't offset */
+  /* box-shadow: inset 0 -3px transparent; */
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ecf0f1;
+  background: inherit;
+  box-shadow: inset 0 -3px @bar-white;
 }
 
 #workspaces button {
-    padding: 0 1em 0 0.7em;
-    background-color: transparent;
-    color: #ffffff;
-}
-
-#workspaces button:hover {
-    /* background: rgba(0, 0, 0, 0.3); */
+  padding: 0 1em 0 0.7em;
+  background-color: transparent;
+  color: @bar-white;
 }
 
 #workspaces button.active {
-   background-color: #ecf0f1;
-   color: #2d3436;
+  background-color: @bar-white;
+  color: @bar-black;
 }
 
 #workspaces button.active:hover {
-  box-shadow: inset 0 -3px #000000;
+  box-shadow: inset 0 -3px @bar-black;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+  background-color: @bar-red;
 }
 
-#clock,
+#clock {
+  padding: 0 0.5em;
+  background-color: @bar-white;
+  color: @bar-black;
+}
+
 #battery,
 #cpu,
 #memory,
@@ -72,141 +76,73 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 10px;
-    color: #ffffff;
+  padding: 0 10px;
+  color: @bar-white;
 }
 
 #window,
 #workspaces {
-    margin: 0 4px;
+  margin: 0 4px;
 }
 /* you can set a style on hover for any module like this */
 
-#pulseaudio:hover {
-  background-color: #a37800;
-}
-
-
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
-
-#clock {
-    background-color: #64727D;
-}
-
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background: rgba(38, 166, 81, 0.3);
+  margin-right: 0;
 }
 
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+  to {
+    background-color: @bar-white;
+    color: @bar-black;
+  }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    background: rgba(46, 204, 113, 0.3);
-    color: #000000;
-}
-
-#memory {
-    background: rgba(155, 89, 182, 0.3);
-}
-
-#disk {
-    background-color: #964B00;
-}
-
-#network {
-    background: rgba(41, 128, 185, 0.3);
-}
-
-#network.disconnected {
-    background: rgba(245, 60, 60, 0.3);
-}
-
-#pulseaudio {
-    background: rgba(241, 196, 15, 0.3);
-    color: #000000;
-}
-
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
-}
-
-#wireplumber.muted {
-    background-color: #f53c3c;
-}
-
-#tray {
-    background: rgba(41, 128, 185, 0.3);
+  background-color: @bar-red;
+  color: @bar-white;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #tray > .passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-    background-color: #2d3436;
+  -gtk-icon-effect: highlight;
+  background-color: @bar-red;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
+  background-color: @bar-white;
+  color: @bar-black;
 }
 
 #language {
-  background: rgba(0, 0, 0, 0.4);
   min-width: 16px;
 }
 
 #privacy {
-    padding: 0;
+  padding: 0;
 }
 
 #privacy-item {
-    padding: 0 5px;
-    color: white;
+  padding: 0 5px;
 }
 
-#privacy-item.screenshare {
-    background: rgba(160, 28, 0, 0.3)
-}
-
-#privacy-item.audio-in {
-    background: rgba(160, 28, 0, 0.3)
-}
-
+#privacy-item.screenshare,
+#privacy-item.audio-in,
 #privacy-item.audio-out {
-    background: rgba(160, 28, 0, 0.3)
+  background: @bar-red;
 }
+
