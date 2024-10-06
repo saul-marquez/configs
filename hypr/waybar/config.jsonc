@@ -11,27 +11,27 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "privacy",
         "hyprland/language",
         "idle_inhibitor",
-        "privacy",
         "pulseaudio",
-        "network",
         "cpu",
         "memory",
         "battery",
+        "network",
         "tray",
         "clock",
     ],
     // Modules configuration
     "hyprland/workspaces": {
-        "format": "{name}: {icon}",
+        "format": "{icon}",
         "format-icons": {
             "1": "",
             "2": "",
             "3": "",
             "4": "󰩃",
-            "5": "",
-            "6": "",
+            "5": "5",
+            "6": "6",
             "urgent": "",
             "focused": "",
         },
@@ -61,11 +61,11 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage:02} ",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{:02} "
     },
     "battery": {
         "states": {
@@ -73,10 +73,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format": "{capacity:03} {icon}",
+        "format-full": "{icon}",
+        "format-charging": "{capacity:02}% ",
+        "format-plugged": "{capacity:02}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -92,11 +92,11 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume} {icon}  {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format": "{volume:02} {icon}   {format_source}",
+        "format-bluetooth": "{volume:02}% {icon} {format_source}",
         "format-bluetooth-muted": "󰝟 {icon} {format_source}",
         "format-muted": "  {format_source}",
-        "format-source": " {volume} ",
+        "format-source": " {volume:02} ",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -121,14 +121,14 @@
         "hyprland/workspaces",
     ],
     "hyprland/workspaces": {
-        "format": "{name}: {icon}",
+        "format": "{icon}",
         "format-icons": {
             "1": "",
             "2": "",
             "3": "",
             "4": "󰩃",
-            "5": "",
-            "6": "",
+            "5": "5",
+            "6": "6",
             "urgent": "",
             "focused": "",
         },
