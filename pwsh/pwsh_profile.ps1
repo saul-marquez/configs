@@ -1,4 +1,4 @@
-oh-my-posh init pwsh --config "$PSScriptRoot/prompt/cloud-context.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$PSScriptRoot/pwsh/prompt/cloud-context.omp.json" | Invoke-Expression
 
 Import-Module posh-git
 
