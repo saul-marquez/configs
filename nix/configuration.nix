@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, lib, ... }:
 
 
 {
@@ -232,12 +232,19 @@
     bruno
     redisinsight
     sqlcmd
+    citrix_workspace
 
      # Python
-    python311Full
-    python311Packages.zipp
-    python311Packages.wrapt
-    # python312Full
+    (python311.withPackages(pyPkgs:
+    [
+      pyPkgs.zipp
+      pyPkgs.wrapt
+      pyPkgs.python-lsp-server
+      pyPkgs.python-lsp-jsonrpc
+      pyPkgs.docstring-to-markdown
+      pyPkgs.pluggy
+      pyPkgs.jedi
+    ]))
     poetry
     ruff
     fastapi-cli

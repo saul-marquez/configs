@@ -68,6 +68,7 @@
     font = lib.mkForce {
       package = pkgs.fira-code-nerdfont;
       name = "FiraCode Nerd Font Mono";
+      size = 15;
     };
     shellIntegration.enableFishIntegration = true;
   };

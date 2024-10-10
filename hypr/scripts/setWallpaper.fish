@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
 
-swww-daemon --no-cache &
+swww-daemon &
 sleep .5
 swww img $argv[1]
