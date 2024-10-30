@@ -13,4 +13,3 @@ alias cfg="nvim ~/dotfiles/"
 set -e SSH_ASKPASS
 
 set PAT PAT
-set LD_LIBRARY_PATH (nix eval --raw nixpkgs#stdenv.cc.cc.lib)/lib

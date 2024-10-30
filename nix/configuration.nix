@@ -270,6 +270,16 @@
     # Rust
     rustc
     cargo
+
+    #Gleam
+    gleam
+    erlang
+    codecrafters-cli
+
+    #
+    php83
+    php83Packages.composer
+    phpunit
   ];
 
   security = {

@@ -1,5 +1,5 @@
-@define-color bar-white #2d3436;
-@define-color bar-black #ecf0f1;
+@define-color bar-white #ecf0f1;
+@define-color bar-black #2d3436;
 @define-color bar-red #eb4d4b;
 
 * {
@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-  background-color: rgba(0, 0, 0, 0.0);
+  background-color: rgba(0, 0, 0, 0.4);
   color: @bar-white;
 }
 
@@ -57,6 +57,8 @@ button:hover {
 
 #clock {
   padding: 0 0.3em;
+  background-color: @bar-white;
+  color: @bar-black;
 }
 
 #battery,

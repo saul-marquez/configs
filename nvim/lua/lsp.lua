@@ -56,6 +56,7 @@ require('mason-lspconfig').setup()
 local servers = {
     rust_analyzer = {},
     eslint = {},
+    gleam = {},
     vtsls = {
       settings = {
         typescript = {
@@ -68,6 +69,7 @@ local servers = {
     html = { filetypes = { 'html', 'twig', 'hbs' } },
     dockerls = {},
     pylsp = {},
+    phpactor = {},
     nil_ls = {},
     -- lua_ls = {
     --     Lua = {
