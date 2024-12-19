@@ -6,7 +6,7 @@
 
 
 {
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   imports = [
@@ -177,6 +177,10 @@
     brave
     inputs.zen-browser.packages.${pkgs.system}.default
 
+    obsidian
+
+    inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.teams-for-linux
+
     # Basics
     # alacritty
     # fish
@@ -214,6 +218,7 @@
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
     glow # markdown previewer in terminal
+    typora
     lnav
     # atuin
 
@@ -222,6 +227,8 @@
     gh
     docker
     kubectl
+    kubelogin
+    k9s
     (azure-cli.withExtensions [
      azure-cli-extensions.azure-devops
     ])
@@ -244,6 +251,11 @@
       pyPkgs.docstring-to-markdown
       pyPkgs.pluggy
       pyPkgs.jedi
+      pyPkgs.flake8
+      pyPkgs.mypy
+      pyPkgs.vulture
+      pyPkgs.autopep8
+      pyPkgs.types-requests
     ]))
     poetry
     ruff
@@ -262,10 +274,8 @@
     # Lua
     lua51Packages.lua
     sumneko-lua-language-server
-
-    # Pulumi
-    pulumi
-    pulumiPackages.pulumi-language-nodejs
+ # pulumi
+    # pulumiPackages.pulumi-language-nodejs
 
     # Rust
     rustc

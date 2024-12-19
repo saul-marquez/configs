@@ -35,7 +35,7 @@
 
     pinta
     meld
-    teams-for-linux
+    # teams-for-linux
   ];
 
   programs.git = {
